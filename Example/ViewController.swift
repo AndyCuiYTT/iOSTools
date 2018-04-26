@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        print("的点点滴滴多多多多多多多多多多")
+        ShareManager.shareInstance().wx_shareText("dddddddddddddd", scene: WXSceneSession)
     }
 
     override func didReceiveMemoryWarning() {
