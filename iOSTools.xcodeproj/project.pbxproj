@@ -12,6 +12,7 @@
 		7081B0F020915BDF001AA2CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0EE20915BDF001AA2CF /* Main.storyboard */; };
 		7081B0F220915BE0001AA2CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0F120915BE0001AA2CF /* Assets.xcassets */; };
 		7081B0F520915BE0001AA2CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0F320915BE0001AA2CF /* LaunchScreen.storyboard */; };
+		7081B0FE20915C48001AA2CF /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0FD20915C48001AA2CF /* ImageTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7081B0F120915BE0001AA2CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7081B0F420915BE0001AA2CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7081B0F620915BE0001AA2CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7081B0FD20915C48001AA2CF /* ImageTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		7081B0DE20915BDF001AA2CF = {
 			isa = PBXGroup;
 			children = (
+				7081B0FC20915C09001AA2CF /* Example */,
 				7081B0E920915BDF001AA2CF /* iOSTools */,
 				7081B0E820915BDF001AA2CF /* Products */,
 			);
@@ -54,6 +57,14 @@
 		7081B0E920915BDF001AA2CF /* iOSTools */ = {
 			isa = PBXGroup;
 			children = (
+				7081B0FD20915C48001AA2CF /* ImageTools.swift */,
+			);
+			path = iOSTools;
+			sourceTree = "<group>";
+		};
+		7081B0FC20915C09001AA2CF /* Example */ = {
+			isa = PBXGroup;
+			children = (
 				7081B0EA20915BDF001AA2CF /* AppDelegate.swift */,
 				7081B0EC20915BDF001AA2CF /* ViewController.swift */,
 				7081B0EE20915BDF001AA2CF /* Main.storyboard */,
@@ -61,7 +72,7 @@
 				7081B0F320915BE0001AA2CF /* LaunchScreen.storyboard */,
 				7081B0F620915BE0001AA2CF /* Info.plist */,
 			);
-			path = iOSTools;
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */,
+				7081B0FE20915C48001AA2CF /* ImageTools.swift in Sources */,
 				7081B0EB20915BDF001AA2CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = iOSTools/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,7 +310,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = iOSTools/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

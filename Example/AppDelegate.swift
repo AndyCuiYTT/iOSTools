@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  iOSTools
 //
-//  Created by qiuweniOS on 2018/4/26.
+//  Created by AndyCui on 2018/4/26.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 
