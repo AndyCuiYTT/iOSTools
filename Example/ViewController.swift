@@ -14,9 +14,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        UIApplication.shared.isStatusBarHidden = true
         
-        print("的点点滴滴多多多多多多多多多多")
-        ShareManager.shareInstance().wx_shareText("dddddddddddddd", scene: WXSceneSession)
+        let imageView = UIImageView(frame: self.view.frame)
+        imageView.image = UIImage(named: "1.jpeg")?.ytt.resetImageSizeWithHeight(self.view.frame.height - 100)
+        imageView.contentMode = .center
+        self.view.addSubview(imageView)
+        
+        
+        guard (true || false) else {
+            print("ddddddd")
+            
+            return
+        }
+        
+        print("2222222")
+        
+        
+        YTTShareManager.shareInstance().qq_login(permissions: [kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]) { (info) in
+            print(info)
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

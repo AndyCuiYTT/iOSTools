@@ -3,3 +3,5 @@
 //
 
 #import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
