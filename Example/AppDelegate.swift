@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        ThirdPlatformTools.shareDelegate = self
+        ThirdPlatformTools.registerQQApp()
+        ThirdPlatformTools.registerWxApp()
+
         return true
     }
 
@@ -37,13 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        return WXApi.handleOpen(url, delegate: YTTShareManager.shareInstance())
+        return WXApi.handleOpen(url, delegate: ThirdPlatformToolsResp.shareInstance())
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         if sourceApplication == "com.tencent.xin" {
-            return WXApi.handleOpen(url, delegate: YTTShareManager.shareInstance())
+            return WXApi.handleOpen(url, delegate: ThirdPlatformToolsResp.shareInstance())
         }
         
         if sourceApplication == "com.tencent.mqq" {
@@ -56,5 +61,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+}
+
+extension AppDelegate: YTTShareProtocol {
+    func wxNotInstall() {
+        
+    }
+    
+    func wxNotSupport() {
+        
+    }
+    
+    func getWxAppidAndSecret() -> (appID: String, secret: String) {
+        return ("1111","11111")
+    }
+    
+    func qqNotInstall() {
+        print("QQ 未安装")
+    }
+    
+    func getQQAppid() -> String {
+        return "1106931746"
+    }
+    
+    func shareResult(platform: SharePlatform, errCode: Int, errmsg: String) {
+        print("\(errCode)" + errmsg)
+    }
+    
+    
 }
 

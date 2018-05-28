@@ -19,25 +19,32 @@ class ViewController: UIViewController {
         let imageView = UIImageView(frame: self.view.frame)
         imageView.image = UIImage(named: "1.jpeg")?.ytt.resetImageSizeWithHeight(self.view.frame.height - 100)
         imageView.contentMode = .center
-        self.view.addSubview(imageView)
+//        self.view.addSubview(imageView)
         
         
-        guard (true || false) else {
-            print("ddddddd")
-            
-            return
-        }
-        
-        print("2222222")
-        
-        
-        YTTShareManager.shareInstance().qq_login(permissions: [kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]) { (info) in
-            print(info)
-        }
+      
         
         
     }
 
+    @IBAction func click(_ sender: UIButton) {
+    
+        
+        print("11111")
+        
+        ThirdPlatformTools.login.qq_login(permissions: [kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]) { (info) in
+            print(info)
+        }
+        
+    }
+    @IBAction func shareQQ(_ sender: UIButton) {
+        
+        print("qqqq")
+        
+        ThirdPlatformTools.share.wx_shareText("少时诵诗书", scene: WXSceneSession)
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
