@@ -20,11 +20,11 @@ enum QQScene {
 
 public class YTTShareManager: NSObject {
 
-    private var delegate: YTTShareProtocol?
+    private var delegate: YTTToolsProtocol?
 
-    private var wxLoginResult: ((YTTLoginResultStruct) -> Void)?
+    private var wxLoginResult: ((YTTToolsResultStruct) -> Void)?
 
-    public init(_ delegate: YTTShareProtocol?) {
+    public init(_ delegate: YTTToolsProtocol?) {
         self.delegate = delegate
     }
 

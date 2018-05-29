@@ -9,13 +9,13 @@
 import AVFoundation
 
 
-public enum SharePlatform {
+public enum YTTSharePlatform {
     case weChat
     case QQ
     case weibo
 }
 
-struct YTTLoginResultStruct {
+struct YTTToolsResultStruct {
     var errCode: Int! // 0 为成功
     var errmsg: String?
     var result: [String: Any]?
@@ -34,7 +34,7 @@ struct YTTLoginResultStruct {
 }
 
 
-public protocol YTTShareProtocol {
+public protocol YTTToolsProtocol {
 
     func wxNotInstall()
     func wxNotSupport()
@@ -44,37 +44,68 @@ public protocol YTTShareProtocol {
     func qqNotInstall()
     func getQQAppid() -> String
     
-    func shareResult(platform: SharePlatform, errCode: Int, errmsg: String)
+    func shareResult(platform: YTTSharePlatform, errCode: Int, errmsg: String)
 }
+
+extension YTTToolsProtocol {
+    func wxNotInstall() {}
+    func wxNotSupport() {}
+    func getWxAppidAndSecret() -> (appID: String, secret: String) {return ("","")}
+    
+    
+    func qqNotInstall() {}
+    func getQQAppid() -> String {return ""}
+    
+    func shareResult(platform: YTTSharePlatform, errCode: Int, errmsg: String) {}
+}
+
 
 
 public class ThirdPlatformTools {
 
     
-    static public var shareDelegate: YTTShareProtocol?
+    static public var delegate: YTTToolsProtocol?
     
     
     static public let share: YTTShareManager = {
-        return YTTShareManager(ThirdPlatformTools.shareDelegate)
+        return YTTShareManager(ThirdPlatformTools.delegate)
     }()
     
     static public let login: YTTLoginTools = {
         return YTTLoginTools()
     }()
     
-    static public let pay: YTTShareManager = {
-        return YTTShareManager(ThirdPlatformTools.shareDelegate)
+    static public let pay: YTTPayTools = {
+        return YTTPayTools()
     }()
     
     static var tencentOAuth: TencentOAuth?
     
     class func registerQQApp() {
-        tencentOAuth = TencentOAuth(appId: ThirdPlatformTools.shareDelegate?.getQQAppid(), andDelegate: ThirdPlatformToolsResp.shareInstance())
+        tencentOAuth = TencentOAuth(appId: ThirdPlatformTools.delegate?.getQQAppid(), andDelegate: ThirdPlatformToolsResp.shareInstance())
     }
     
     class func registerWxApp() {
+        WXApi.registerApp(ThirdPlatformTools.delegate?.getWxAppidAndSecret().appID)
+    }
+    
+    class func application(open url: URL, sourceApplication: String?) -> Bool {
+        if url.host == "safepay" {
+            AlipaySDK.defaultService().processAuthResult(url, standbyCallback: { (result) in
+                
+            })
+            return true
+        }
         
-        WXApi.registerApp(ThirdPlatformTools.shareDelegate?.getWxAppidAndSecret().appID)
+        
+        if sourceApplication == "com.tencent.xin" {
+            return WXApi.handleOpen(url, delegate: ThirdPlatformToolsResp.shareInstance())
+        }
+        
+        if sourceApplication == "com.tencent.mqq" {
+            return TencentOAuth.handleOpen(url)
+        }
+        return true
     }
     
     

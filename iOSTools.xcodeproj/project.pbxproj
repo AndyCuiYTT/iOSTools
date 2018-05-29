@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70204D9020BCE857003F3831 /* YTTPayTools.swift */; };
+		70204D9420BD39AF003F3831 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9220BD39AE003F3831 /* AlipaySDK.framework */; };
+		70204D9520BD39AF003F3831 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70204D9320BD39AF003F3831 /* AlipaySDK.bundle */; };
+		70204D9720BD39DF003F3831 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9620BD39DE003F3831 /* QuartzCore.framework */; };
+		70204D9920BD39EC003F3831 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9820BD39EC003F3831 /* CoreText.framework */; };
+		70204D9B20BD39F6003F3831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9A20BD39F5003F3831 /* CoreGraphics.framework */; };
+		70204D9D20BD3A00003F3831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9C20BD39FF003F3831 /* UIKit.framework */; };
+		70204D9F20BD3A0A003F3831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9E20BD3A0A003F3831 /* Foundation.framework */; };
+		70204DA120BD3A1F003F3831 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204DA020BD3A1F003F3831 /* CoreMotion.framework */; };
 		7081B0EB20915BDF001AA2CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0EA20915BDF001AA2CF /* AppDelegate.swift */; };
 		7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0EC20915BDF001AA2CF /* ViewController.swift */; };
 		7081B0F020915BDF001AA2CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0EE20915BDF001AA2CF /* Main.storyboard */; };
@@ -32,6 +41,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70204D9020BCE857003F3831 /* YTTPayTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPayTools.swift; sourceTree = "<group>"; };
+		70204D9220BD39AE003F3831 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		70204D9320BD39AF003F3831 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		70204D9620BD39DE003F3831 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		70204D9820BD39EC003F3831 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		70204D9A20BD39F5003F3831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		70204D9C20BD39FF003F3831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		70204D9E20BD3A0A003F3831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		70204DA020BD3A1F003F3831 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		7081B0E720915BDF001AA2CF /* iOSTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7081B0EA20915BDF001AA2CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7081B0EC20915BDF001AA2CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +85,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70204DA120BD3A1F003F3831 /* CoreMotion.framework in Frameworks */,
 				7081B11E20919E3B001AA2CF /* CFNetwork.framework in Frameworks */,
+				70204D9F20BD3A0A003F3831 /* Foundation.framework in Frameworks */,
+				70204D9D20BD3A00003F3831 /* UIKit.framework in Frameworks */,
+				70204D9B20BD39F6003F3831 /* CoreGraphics.framework in Frameworks */,
+				70204D9920BD39EC003F3831 /* CoreText.framework in Frameworks */,
+				70204D9720BD39DF003F3831 /* QuartzCore.framework in Frameworks */,
+				70204D9420BD39AF003F3831 /* AlipaySDK.framework in Frameworks */,
 				70A7579B20BB8C4400835D60 /* TencentOpenAPI.framework in Frameworks */,
 				70A757A320BB8CC200835D60 /* libWeChatSDK.a in Frameworks */,
 				7081B11C20919E30001AA2CF /* Security.framework in Frameworks */,
@@ -128,6 +153,8 @@
 		7081B103209178E6001AA2CF /* library */ = {
 			isa = PBXGroup;
 			children = (
+				70204D9320BD39AF003F3831 /* AlipaySDK.bundle */,
+				70204D9220BD39AE003F3831 /* AlipaySDK.framework */,
 				70A7579C20BB8CC100835D60 /* WechatSDK1.8.2 */,
 				70A7579A20BB8C4400835D60 /* TencentOpenAPI.framework */,
 			);
@@ -137,6 +164,12 @@
 		7081B10C209179E1001AA2CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70204DA020BD3A1F003F3831 /* CoreMotion.framework */,
+				70204D9E20BD3A0A003F3831 /* Foundation.framework */,
+				70204D9C20BD39FF003F3831 /* UIKit.framework */,
+				70204D9A20BD39F5003F3831 /* CoreGraphics.framework */,
+				70204D9820BD39EC003F3831 /* CoreText.framework */,
+				70204D9620BD39DE003F3831 /* QuartzCore.framework */,
 				7081B11D20919E3B001AA2CF /* CFNetwork.framework */,
 				7081B11B20919E30001AA2CF /* Security.framework */,
 				7081B11920919E25001AA2CF /* libc++.tbd */,
@@ -156,6 +189,7 @@
 				7081B103209178E6001AA2CF /* library */,
 				70A7578E20BB8A8600835D60 /* YTTLoginTools.swift */,
 				70A757A420BB931000835D60 /* ThirdPlatformToolsResp.swift */,
+				70204D9020BCE857003F3831 /* YTTPayTools.swift */,
 			);
 			path = ThirdPlatformTools;
 			sourceTree = "<group>";
@@ -231,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70204D9520BD39AF003F3831 /* AlipaySDK.bundle in Resources */,
 				708A66412099489E00C952F4 /* 1.jpeg in Resources */,
 				7081B0F520915BE0001AA2CF /* LaunchScreen.storyboard in Resources */,
 				7081B0F220915BE0001AA2CF /* Assets.xcassets in Resources */,
@@ -250,6 +285,7 @@
 				70A7578F20BB8A8600835D60 /* YTTLoginTools.swift in Sources */,
 				70A757A520BB931000835D60 /* ThirdPlatformToolsResp.swift in Sources */,
 				7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */,
+				70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */,
 				7081B0FE20915C48001AA2CF /* ImageTools.swift in Sources */,
 				7081B102209178B2001AA2CF /* YTTShareTools.swift in Sources */,
 				70A7578C20BB892200835D60 /* ThirdPlatformTools.swift in Sources */,

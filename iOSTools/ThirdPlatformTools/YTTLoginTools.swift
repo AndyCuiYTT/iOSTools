@@ -21,12 +21,12 @@ extension YTTLoginTools {
     /// - Parameters:
     ///   - permissions: 授权信息列表
     ///   - result: 授权后回调
-    func qq_login(permissions: [String], result: @escaping (YTTLoginResultStruct) -> Void) {
+    func qq_login(permissions: [String], result: @escaping (YTTToolsResultStruct) -> Void) {
         ThirdPlatformTools.tencentOAuth?.authorize(permissions, inSafari: false)
         ThirdPlatformToolsResp.shareInstance().qqLoginResult = result
     }
     
-    func TIM_login(permissions: [String], result: @escaping (YTTLoginResultStruct) -> Void) {
+    func TIM_login(permissions: [String], result: @escaping (YTTToolsResultStruct) -> Void) {
 
         ThirdPlatformTools.tencentOAuth?.authorize(permissions, inSafari: false)
         ThirdPlatformToolsResp.shareInstance().qqLoginResult = result
@@ -42,14 +42,14 @@ extension YTTLoginTools {
     /// - Parameters:
     ///   - scope: 应用授权作用域，如获取用户个人信息则填写snsapi_userinfo
     ///   - state: 用于保持请求和回调的状态，授权请求后原样带回给第三方。
-    func wx_login(_ scope: String = "snsapi_userinfo", state: String, result: @escaping (YTTLoginResultStruct) -> Void) {
+    func wx_login(_ scope: String = "snsapi_userinfo", state: String, result: @escaping (YTTToolsResultStruct) -> Void) {
         guard WXApi.isWXAppInstalled() else {
-            ThirdPlatformTools.shareDelegate?.wxNotInstall()
+            ThirdPlatformTools.delegate?.wxNotInstall()
             return
         }
         
         guard WXApi.isWXAppSupport() else {
-            ThirdPlatformTools.shareDelegate?.wxNotSupport()
+            ThirdPlatformTools.delegate?.wxNotSupport()
             return
         }
         let req = SendAuthReq()
