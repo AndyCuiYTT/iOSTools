@@ -22,7 +22,7 @@ extension UIImage {
     ///   - opaque: 设置透明YES代表透明，NO代表不透明
     ///   - scale: 代表缩放,0代表不缩放
     /// - Returns: 要截取视图对应的 UIImage 对象
-    static func captureScreen(currentView: UIView, opaque: Bool, scale: CGFloat) -> UIImage? {
+    class func captureScreen(currentView: UIView, opaque: Bool, scale: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(currentView.bounds.size, opaque, scale)
         currentView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -36,7 +36,7 @@ extension UIImage {
     /// - Parameters:
     ///   - color: 图片颜色
     ///   - size: 图片尺寸
-    static func initWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
+    class func initWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContextWithOptions(size, true, 0)
         let context = UIGraphicsGetCurrentContext()
@@ -51,7 +51,7 @@ extension UIImage {
     /// base64 转 UIImage
     ///
     /// - Parameter base64: 图片base64
-    static func initWithBase64(_ base64: String) -> UIImage? {
+    class func initWithBase64(_ base64: String) -> UIImage? {
         guard let imageData = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
             return nil
         }
@@ -61,7 +61,7 @@ extension UIImage {
 }
 
 
-class YTTImage: NSObject {
+class YTTImage {
     private var image: UIImage
     init(_ image: UIImage) {
         self.image = image

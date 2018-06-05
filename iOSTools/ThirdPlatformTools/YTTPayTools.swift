@@ -2,7 +2,7 @@
 //  YTTPayTools.swift
 //  iOSTools
 //
-//  Created by qiuweniOS on 2018/5/29.
+//  Created by AndyCui on 2018/5/29.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 
