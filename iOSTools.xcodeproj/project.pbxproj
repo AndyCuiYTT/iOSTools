@@ -35,6 +35,7 @@
 		7081B11A20919E25001AA2CF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7081B11920919E25001AA2CF /* libc++.tbd */; };
 		7081B11C20919E30001AA2CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7081B11B20919E30001AA2CF /* Security.framework */; };
 		7081B11E20919E3B001AA2CF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7081B11D20919E3B001AA2CF /* CFNetwork.framework */; };
+		7085A17520C90C4E0099C1ED /* TableViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085A17420C90C4E0099C1ED /* TableViewTools.swift */; };
 		708A66412099489E00C952F4 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 708A66402099489E00C952F4 /* 1.jpeg */; };
 		70A7578C20BB892200835D60 /* ThirdPlatformTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7578B20BB892200835D60 /* ThirdPlatformTools.swift */; };
 		70A7578F20BB8A8600835D60 /* YTTLoginTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7578E20BB8A8600835D60 /* YTTLoginTools.swift */; };
@@ -76,6 +77,7 @@
 		7081B11920919E25001AA2CF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7081B11B20919E30001AA2CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7081B11D20919E3B001AA2CF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7085A17420C90C4E0099C1ED /* TableViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTools.swift; sourceTree = "<group>"; };
 		708A66402099489E00C952F4 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		70A7578B20BB892200835D60 /* ThirdPlatformTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPlatformTools.swift; sourceTree = "<group>"; };
 		70A7578E20BB8A8600835D60 /* YTTLoginTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTLoginTools.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				70758EAA20C4C7AB00751001 /* ColorTools.swift */,
 				70758EAC20C4CB3800751001 /* DateTools.swift */,
 				707A0F0D20C65C69009FB6EF /* LocationTools.swift */,
+				7085A17420C90C4E0099C1ED /* TableViewTools.swift */,
 			);
 			path = iOSTools;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				70A757A520BB931000835D60 /* ThirdPlatformToolsResp.swift in Sources */,
 				7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */,
 				70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */,
+				7085A17520C90C4E0099C1ED /* TableViewTools.swift in Sources */,
 				7081B0FE20915C48001AA2CF /* ImageTools.swift in Sources */,
 				7081B102209178B2001AA2CF /* YTTShareTools.swift in Sources */,
 				70A7578C20BB892200835D60 /* ThirdPlatformTools.swift in Sources */,

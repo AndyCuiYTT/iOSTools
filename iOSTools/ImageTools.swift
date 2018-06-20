@@ -58,6 +58,22 @@ extension UIImage {
         return UIImage(data: imageData)
     }
     
+    /// 通过 URL 加载图片
+    ///
+    /// - Parameter urlStr: 图片 URL 地址
+    class func initWithURL(_ urlStr: String) -> UIImage? {
+        
+        if let url = URL(string: urlStr) {
+            do {
+                let imageData = try Data(contentsOf: url, options: .mappedIfSafe)
+                return UIImage(data: imageData)
+            }catch {
+                return nil
+            }
+        }
+        return nil
+    }
+    
 }
 
 
@@ -65,6 +81,21 @@ class YTTImage {
     private var image: UIImage
     init(_ image: UIImage) {
         self.image = image
+    }
+    
+    
+    /// 获取圆形图片
+    ///
+    /// - Returns: 圆形图片
+    func circleImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.image.size, false, image.scale)
+        let context = UIGraphicsGetCurrentContext()
+        context?.addEllipse(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.image.size))
+        context?.clip()
+        self.image.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.image.size))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     /// 修改图片 size
