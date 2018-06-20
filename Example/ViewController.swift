@@ -75,6 +75,7 @@ class ViewController: UIViewController {
 //            print(info)
 //        }
         
+        
     }
     @IBAction func shareQQ(_ sender: UIButton) {
 //
