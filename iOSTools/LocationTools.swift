@@ -12,14 +12,14 @@ import CoreLocation
 
 // 创建对象注意生命周期
 class YTTLocationTools: NSObject {
-
-    
-    var locationManager: CLLocationManager?
-    
-    var finishLocation: ((CLLocationManager, CLLocation?) -> Void)?
     
     
-    func startLocation() {
+    private var locationManager: CLLocationManager?
+    
+    private var finishLocations: ((CLLocationManager, [CLLocation]) -> Void)?
+    
+    
+    func startLocation(locations: @escaping ((CLLocationManager, [CLLocation]) -> Void)) {
         guard CLLocationManager.locationServicesEnabled() else {
             
             let alertVC = UIAlertController(title: "温馨提示", message: "请在设置中打开定位功能", preferredStyle: .alert)
@@ -52,7 +52,7 @@ class YTTLocationTools: NSObject {
             UIApplication.shared.keyWindow?.rootViewController?.present(alertVC, animated: true, completion: nil)
             return
         }
-        
+        finishLocations = locations
         locationManager = CLLocationManager()
         // 设置精度
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -62,8 +62,10 @@ class YTTLocationTools: NSObject {
         }
         // 设置代理
         locationManager?.delegate = self
-        //
-        locationManager?.distanceFilter = 5
+        // 定位范围 (移动与上次定位位置超过这距离再次定位)
+        locationManager?.distanceFilter = 10
+        // 定位精度
+        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         // 开始定位
         locationManager?.startUpdatingLocation()
     }
@@ -83,7 +85,7 @@ class YTTLocationTools: NSObject {
                         address.append((placeMake.country ?? "", placeMake.administrativeArea ?? "", placeMake.locality ?? "", placeMake.subLocality ?? "", "\(placeMake.thoroughfare ?? "")\(placeMake.subThoroughfare ?? "")", placeMake.name ?? "", detaileAddress))
                     }
                 }
-            }            
+            }
             addresses(address)
         }
     }
@@ -106,7 +108,7 @@ class YTTLocationTools: NSObject {
 
 extension YTTLocationTools: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.finishLocation?(manager, locations.first)
+        self.finishLocations?(manager, locations)
     }
     
     

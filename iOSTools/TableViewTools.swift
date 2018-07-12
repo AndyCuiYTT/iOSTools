@@ -23,7 +23,7 @@ class YTTTableView {
     }
     
     func loadNibCell<T>(_ cellNibName: String, indentifier: String, class: T.Type) -> T? {
-        
+        // 需要注册 cell 或在 xib 填写 indentifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: indentifier) as? T {
             return cell
         }

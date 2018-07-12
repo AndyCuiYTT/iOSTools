@@ -37,6 +37,7 @@
 		7081B11E20919E3B001AA2CF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7081B11D20919E3B001AA2CF /* CFNetwork.framework */; };
 		7085A17520C90C4E0099C1ED /* TableViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085A17420C90C4E0099C1ED /* TableViewTools.swift */; };
 		708A66412099489E00C952F4 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 708A66402099489E00C952F4 /* 1.jpeg */; };
+		708B3F3E20F755B700B1157A /* YTTCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708B3F3D20F755B700B1157A /* YTTCustomButton.swift */; };
 		70A7578C20BB892200835D60 /* ThirdPlatformTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7578B20BB892200835D60 /* ThirdPlatformTools.swift */; };
 		70A7578F20BB8A8600835D60 /* YTTLoginTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7578E20BB8A8600835D60 /* YTTLoginTools.swift */; };
 		70A7579B20BB8C4400835D60 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A7579A20BB8C4400835D60 /* TencentOpenAPI.framework */; };
@@ -79,6 +80,7 @@
 		7081B11D20919E3B001AA2CF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7085A17420C90C4E0099C1ED /* TableViewTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTools.swift; sourceTree = "<group>"; };
 		708A66402099489E00C952F4 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		708B3F3D20F755B700B1157A /* YTTCustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTCustomButton.swift; sourceTree = "<group>"; };
 		70A7578B20BB892200835D60 /* ThirdPlatformTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPlatformTools.swift; sourceTree = "<group>"; };
 		70A7578E20BB8A8600835D60 /* YTTLoginTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTLoginTools.swift; sourceTree = "<group>"; };
 		70A7579A20BB8C4400835D60 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		7081B0E920915BDF001AA2CF /* iOSTools */ = {
 			isa = PBXGroup;
 			children = (
+				708B3F3C20F7558C00B1157A /* CustomView */,
 				70A7578D20BB8A2100835D60 /* ThirdPlatformTools */,
 				7081B0FD20915C48001AA2CF /* ImageTools.swift */,
 				7081B0FF2091753F001AA2CF /* StringTools.swift */,
@@ -195,6 +198,14 @@
 				7081B10D209179E1001AA2CF /* CoreTelephony.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		708B3F3C20F7558C00B1157A /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				708B3F3D20F755B700B1157A /* YTTCustomButton.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		70A7578D20BB8A2100835D60 /* ThirdPlatformTools */ = {
@@ -297,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708B3F3E20F755B700B1157A /* YTTCustomButton.swift in Sources */,
 				707A0F0E20C65C69009FB6EF /* LocationTools.swift in Sources */,
 				70758EAD20C4CB3800751001 /* DateTools.swift in Sources */,
 				7081B1002091753F001AA2CF /* StringTools.swift in Sources */,
