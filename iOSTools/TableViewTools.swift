@@ -14,24 +14,80 @@ extension UITableView {
     }
 }
 
-class YTTTableView {
+struct YTTTableView {
 
-    var tableView: UITableView
+    private var tableView: UITableView
     
     init(_ tableView: UITableView) {
         self.tableView = tableView
     }
     
-    func loadNibCell<T>(_ cellNibName: String, indentifier: String, class: T.Type) -> T? {
+    /// 加载 xib 创建的 cell
+    ///
+    /// - Parameters:
+    ///   - cellNibName: nib(xib 文件) 名称
+    ///   - indentifier: cell 唯一标识
+    ///   - class: cell 类型
+    /// - Returns: 创建好的 cell
+    func loadNibCell<T: UITableViewCell>(_ cellNibName: String, indentifier: String, class: T.Type) -> T? {
         // 需要注册 cell 或在 xib 填写 indentifier
         if let cell = tableView.dequeueReusableCell(withIdentifier: indentifier) as? T {
             return cell
         }
         if let cell = Bundle.main.loadNibNamed(cellNibName, owner: nil, options: nil)?.first as? T {
+            cell.selectionStyle = .none
             return cell
         }
         
         return nil
     }
+    
+    
+    /// 注册过的 cell 创建方法
+    ///
+    /// - Parameters:
+    ///   - indentifier:  cell 标识
+    ///   - indexPath: cell 的序列号
+    ///   - class: cell 的类型
+    /// - Returns: 创建好的 cell
+    func loadCell<T: UITableViewCell>(_ indentifier: String, indexPath: IndexPath, class: T.Type) -> T {
+        // 需要注册 cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: indentifier, for: indexPath) as? T {
+            cell.selectionStyle = .none
+            return cell
+        }else {
+            let cell = T(style: .default, reuseIdentifier: indentifier)
+            cell.selectionStyle = .none
+            return cell
+        }
+    }
+    
+    /// cell 创建方法, 可以未注册
+    ///
+    /// - Parameters:
+    ///   - indentifier:  cell 标识
+    ///   - indexPath: cell 的序列号
+    ///   - class: cell 的类型
+    /// - Returns: 创建好的 cell
+    func loadCell<T: UITableViewCell>(_ indentifier: String, class: T.Type) -> T {
+        // 需要注册 cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: indentifier) as? T {
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            let cell = T(style: .default, reuseIdentifier: indentifier)
+            cell.selectionStyle = .none
+            return cell
+        }
+    }
+    
+    
+//    func refreshHeader(refreshingBlock: @escaping MJRefreshComponentRefreshingBlock) {
+//        tableView.mj_header = MJRefreshGifHeader(refreshingBlock: refreshingBlock)
+//    }
+//    
+//    func refreshFooter(refreshingBlock: @escaping MJRefreshComponentRefreshingBlock) {
+//        tableView.mj_footer = MJRefreshBackFooter(refreshingBlock: refreshingBlock)
+//    }
 }
 

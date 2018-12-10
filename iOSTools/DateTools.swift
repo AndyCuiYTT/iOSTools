@@ -28,9 +28,9 @@ extension Date {
 
 
 
-class YTTDate {
+struct YTTDate {
 
-    var date: Date
+    private var date: Date
     
     init(_ date: Date) {
         self.date = date

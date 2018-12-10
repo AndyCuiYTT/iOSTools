@@ -17,22 +17,20 @@ extension String {
     
 }
 
-class YTTString {
+struct YTTString {
     
-    var string: String
+    private var string: String
     
     init(_ string: String) {
         self.string = string
     }
-    
-    
     
     /// 数据校验
     ///
     /// - Parameter regexStr: 正则表达式
     /// - Returns: 校验结果
     func validation(_ regexStr: String) -> Bool {
-        let predicate = NSPredicate(format: "SELE MATCHES %@", regexStr)
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regexStr)
         return predicate.evaluate(with: string)
     }
    

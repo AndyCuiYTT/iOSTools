@@ -49,9 +49,9 @@ extension UIColor {
 
 
 
-class YTTColor {
+struct YTTColor {
     
-    var color: UIColor
+    private var color: UIColor
     
     init(_ color: UIColor) {
         self.color = color

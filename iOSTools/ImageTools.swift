@@ -103,7 +103,7 @@ class YTTImage {
     /// - Parameter size: 图片大小
     /// - Returns: 修改后的图片
     func resetImageSize(_ size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         self.image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
