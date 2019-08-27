@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B2F291023151CF90077EB9F /* Codable+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F290F23151CF90077EB9F /* Codable+CXG.swift */; };
+		4B2F291223151D1B0077EB9F /* Date+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F291123151D1B0077EB9F /* Date+CXG.swift */; };
 		70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70204D9020BCE857003F3831 /* YTTPayTools.swift */; };
 		70204D9420BD39AF003F3831 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9220BD39AE003F3831 /* AlipaySDK.framework */; };
 		70204D9520BD39AF003F3831 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70204D9320BD39AF003F3831 /* AlipaySDK.bundle */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B2F290F23151CF90077EB9F /* Codable+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+CXG.swift"; sourceTree = "<group>"; };
+		4B2F291123151D1B0077EB9F /* Date+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+CXG.swift"; sourceTree = "<group>"; };
 		70204D9020BCE857003F3831 /* YTTPayTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPayTools.swift; sourceTree = "<group>"; };
 		70204D9220BD39AE003F3831 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		70204D9320BD39AF003F3831 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 		7081B0E920915BDF001AA2CF /* iOSTools */ = {
 			isa = PBXGroup;
 			children = (
+				4B2F291123151D1B0077EB9F /* Date+CXG.swift */,
+				4B2F290F23151CF90077EB9F /* Codable+CXG.swift */,
 				708B3F3C20F7558C00B1157A /* CustomView */,
 				70A7578D20BB8A2100835D60 /* ThirdPlatformTools */,
 				7081B0FD20915C48001AA2CF /* ImageTools.swift */,
@@ -312,6 +318,8 @@
 				707A0F0E20C65C69009FB6EF /* LocationTools.swift in Sources */,
 				70758EAD20C4CB3800751001 /* DateTools.swift in Sources */,
 				7081B1002091753F001AA2CF /* StringTools.swift in Sources */,
+				4B2F291223151D1B0077EB9F /* Date+CXG.swift in Sources */,
+				4B2F291023151CF90077EB9F /* Codable+CXG.swift in Sources */,
 				70A7578F20BB8A8600835D60 /* YTTLoginTools.swift in Sources */,
 				70A757A520BB931000835D60 /* ThirdPlatformToolsResp.swift in Sources */,
 				7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */,
