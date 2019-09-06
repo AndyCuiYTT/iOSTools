@@ -1,8 +1,7 @@
 //
-//  ImageTools.swift
-//  ImageDemo
+//  UImage+CXG.swift
 //
-//  Created by AndyCui on 2018/4/3.
+//  Created by CuiXg on 2018/4/3.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 
@@ -10,10 +9,6 @@ import UIKit
 
 extension UIImage {
     
-    var ytt: YTTImage {
-        return YTTImage(self)
-    }
-        
     /// 截取视图
     ///
     /// - Parameters:
@@ -22,7 +17,7 @@ extension UIImage {
     ///   - opaque: 设置透明YES代表透明，NO代表不透明
     ///   - scale: 代表缩放,0代表不缩放
     /// - Returns: 要截取视图对应的 UIImage 对象
-    class func captureScreen(currentView: UIView, opaque: Bool, scale: CGFloat) -> UIImage? {
+    class func cxg_captureScreen(currentView: UIView, opaque: Bool, scale: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(currentView.bounds.size, opaque, scale)
         currentView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -36,7 +31,7 @@ extension UIImage {
     /// - Parameters:
     ///   - color: 图片颜色
     ///   - size: 图片尺寸
-    class func initWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
+    class func cxg_initWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContextWithOptions(size, true, 0)
         let context = UIGraphicsGetCurrentContext()
@@ -51,7 +46,7 @@ extension UIImage {
     /// base64 转 UIImage
     ///
     /// - Parameter base64: 图片base64
-    class func initWithBase64(_ base64: String) -> UIImage? {
+    class func cxg_initWithBase64(_ base64: String) -> UIImage? {
         guard let imageData = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
             return nil
         }
@@ -61,7 +56,7 @@ extension UIImage {
     /// 通过 URL 加载图片
     ///
     /// - Parameter urlStr: 图片 URL 地址
-    class func initWithURL(_ urlStr: String) -> UIImage? {
+    class func cxg_initWithURL(_ urlStr: String) -> UIImage? {
         
         if let url = URL(string: urlStr) {
             do {
@@ -74,25 +69,17 @@ extension UIImage {
         return nil
     }
     
-}
 
-
-class YTTImage {
-    private var image: UIImage
-    init(_ image: UIImage) {
-        self.image = image
-    }
-    
     
     /// 获取圆形图片
     ///
     /// - Returns: 圆形图片
-    func circleImage() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.image.size, false, image.scale)
+    func cxg_circleImage() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         let context = UIGraphicsGetCurrentContext()
-        context?.addEllipse(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.image.size))
+        context?.addEllipse(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
         context?.clip()
-        self.image.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.image.size))
+        self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
@@ -102,9 +89,9 @@ class YTTImage {
     ///
     /// - Parameter size: 图片大小
     /// - Returns: 修改后的图片
-    func resetImageSize(_ size: CGSize) -> UIImage? {
+    func cxg_resetImageSize(_ size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        self.image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
@@ -114,26 +101,26 @@ class YTTImage {
     ///
     /// - Parameter width: 所需宽度
     /// - Returns: 所需尺寸图片
-    func resetImageSizeWithWidth(_ width: CGFloat) -> UIImage? {
-        let height = image.size.height * (width / image.size.width)
-        return resetImageSize(CGSize(width: width, height: height))
+    func cxg_resetImageSizeWithWidth(_ width: CGFloat) -> UIImage? {
+        let height = self.size.height * (width / self.size.width)
+        return cxg_resetImageSize(CGSize(width: width, height: height))
     }
     
     /// 根据高度重新绘制图片
     ///
     /// - Parameter height: 所需高度
     /// - Returns: 所需尺寸图片
-    func resetImageSizeWithHeight(_ height: CGFloat) -> UIImage? {
-        let width = image.size.width * (height / image.size.height)
-        return resetImageSize(CGSize(width: width, height: height))
+    func cxg_resetImageSizeWithHeight(_ height: CGFloat) -> UIImage? {
+        let width = self.size.width * (height / self.size.height)
+        return cxg_resetImageSize(CGSize(width: width, height: height))
     }
     
     /// 根据比例重新绘制图片
     ///
     /// - Parameter scale: 所需比例
     /// - Returns: 所需尺寸图片
-    func resetImageSizeWithScale(_ scale: CGFloat) -> UIImage? {
-        return resetImageSize(CGSize(width: image.size.width * scale, height: image.size.height * scale))
+    func cxg_resetImageSizeWithScale(_ scale: CGFloat) -> UIImage? {
+        return cxg_resetImageSize(CGSize(width: self.size.width * scale, height: self.size.height * scale))
     }
     
     /// 为图片添加图片遮罩
@@ -142,9 +129,9 @@ class YTTImage {
     ///   - maskImage: 遮罩图片
     ///   - maskRect: 遮罩层位置,大小
     /// - Returns: 添加遮罩图片
-    func addMaskLayler(maskImage: UIImage, maskRect: CGRect) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.image.size, true, 0)
-        self.image.draw(in: CGRect(x: 0, y: 0, width: self.image.size.width, height: self.image.size.height))
+    func cxg_addMaskLayler(maskImage: UIImage, maskRect: CGRect) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.size, true, 0)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
         maskImage.draw(in: maskRect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -154,14 +141,14 @@ class YTTImage {
     /// 图片转 base64
     ///
     /// - Returns: 图片 base64值
-    func toBase64() -> String? {
-        let imageData = UIImagePNGRepresentation(self.image)
+    func cxg_toBase64() -> String? {
+        let imageData = UIImagePNGRepresentation(self)
         return imageData?.base64EncodedString(options: .lineLength64Characters)
     }
 
     /// 保存当前图片到相册(需要添加权限)
-    func saveToPhotosAlbum() {
-        UIImageWriteToSavedPhotosAlbum(self.image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+    func cxg_saveToPhotosAlbum() {
+        UIImageWriteToSavedPhotosAlbum(self, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     //  - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
@@ -180,6 +167,36 @@ class YTTImage {
 //                alertVC.dismiss(animated: true, completion: nil)
 //            })
         })
+    }
+    
+    /// 获取图片触摸点颜色
+    ///
+    /// 参考资料
+    /// https://www.cnblogs.com/Free-Thinker/p/5946719.html
+    /// https://www.hangge.com/blog/cache/detail_2304.html
+    /// - Parameters:
+    ///   - image: 要获取颜色的图片
+    ///   - point: 触摸点
+    /// - Returns: 获取到的颜色
+    func cxg_getPointColor(point: CGPoint) -> UIColor? {
+        
+        guard CGRect(origin: CGPoint(x: 0, y: 0), size: self.size).contains(point) else {
+            return nil
+        }
+        
+        if let dataProvider = self.cgImage?.dataProvider, let data = CFDataGetBytePtr(dataProvider.data) {
+            let pixelInfo = ((Int(self.size.width) * Int(point.y)) + Int(point.x)) * 4
+            let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+            let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+            let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+            let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+            if #available(iOS 10.0, *) {
+                return UIColor(displayP3Red: r, green: g, blue: b, alpha: a)
+            } else {
+                return UIColor(red: r, green: g, blue: b, alpha: a)
+            }
+        }
+        return nil
     }
 }
 

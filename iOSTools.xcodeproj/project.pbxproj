@@ -19,7 +19,6 @@
 		70204D9F20BD3A0A003F3831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9E20BD3A0A003F3831 /* Foundation.framework */; };
 		70204DA120BD3A1F003F3831 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204DA020BD3A1F003F3831 /* CoreMotion.framework */; };
 		70758EAB20C4C7AB00751001 /* ColorTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70758EAA20C4C7AB00751001 /* ColorTools.swift */; };
-		70758EAD20C4CB3800751001 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70758EAC20C4CB3800751001 /* DateTools.swift */; };
 		707A0F0E20C65C69009FB6EF /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A0F0D20C65C69009FB6EF /* LocationTools.swift */; };
 		707A0F1020C65C8E009FB6EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A0F0F20C65C8D009FB6EF /* CoreLocation.framework */; };
 		7081B0EB20915BDF001AA2CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0EA20915BDF001AA2CF /* AppDelegate.swift */; };
@@ -27,8 +26,8 @@
 		7081B0F020915BDF001AA2CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0EE20915BDF001AA2CF /* Main.storyboard */; };
 		7081B0F220915BE0001AA2CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0F120915BE0001AA2CF /* Assets.xcassets */; };
 		7081B0F520915BE0001AA2CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7081B0F320915BE0001AA2CF /* LaunchScreen.storyboard */; };
-		7081B0FE20915C48001AA2CF /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0FD20915C48001AA2CF /* ImageTools.swift */; };
-		7081B1002091753F001AA2CF /* StringTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0FF2091753F001AA2CF /* StringTools.swift */; };
+		7081B0FE20915C48001AA2CF /* UImage+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0FD20915C48001AA2CF /* UImage+CXG.swift */; };
+		7081B1002091753F001AA2CF /* String+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0FF2091753F001AA2CF /* String+CXG.swift */; };
 		7081B102209178B2001AA2CF /* YTTShareTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B101209178B2001AA2CF /* YTTShareTools.swift */; };
 		7081B10E209179E1001AA2CF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7081B10D209179E1001AA2CF /* CoreTelephony.framework */; };
 		7081B11420919E00001AA2CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7081B11320919E00001AA2CF /* SystemConfiguration.framework */; };
@@ -61,7 +60,6 @@
 		70204D9E20BD3A0A003F3831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		70204DA020BD3A1F003F3831 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		70758EAA20C4C7AB00751001 /* ColorTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTools.swift; sourceTree = "<group>"; };
-		70758EAC20C4CB3800751001 /* DateTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTools.swift; sourceTree = "<group>"; };
 		707A0F0D20C65C69009FB6EF /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		707A0F0F20C65C8D009FB6EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7081B0E720915BDF001AA2CF /* iOSTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +69,8 @@
 		7081B0F120915BE0001AA2CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7081B0F420915BE0001AA2CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7081B0F620915BE0001AA2CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7081B0FD20915C48001AA2CF /* ImageTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
-		7081B0FF2091753F001AA2CF /* StringTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTools.swift; sourceTree = "<group>"; };
+		7081B0FD20915C48001AA2CF /* UImage+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UImage+CXG.swift"; sourceTree = "<group>"; };
+		7081B0FF2091753F001AA2CF /* String+CXG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CXG.swift"; sourceTree = "<group>"; };
 		7081B101209178B2001AA2CF /* YTTShareTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTShareTools.swift; sourceTree = "<group>"; };
 		7081B10D209179E1001AA2CF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7081B10F20917AA7001AA2CF /* iOSTools-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSTools-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -149,11 +147,10 @@
 				4B2F290F23151CF90077EB9F /* Codable+CXG.swift */,
 				708B3F3C20F7558C00B1157A /* CustomView */,
 				70A7578D20BB8A2100835D60 /* ThirdPlatformTools */,
-				7081B0FD20915C48001AA2CF /* ImageTools.swift */,
-				7081B0FF2091753F001AA2CF /* StringTools.swift */,
+				7081B0FD20915C48001AA2CF /* UImage+CXG.swift */,
+				7081B0FF2091753F001AA2CF /* String+CXG.swift */,
 				7081B10F20917AA7001AA2CF /* iOSTools-Bridging-Header.h */,
 				70758EAA20C4C7AB00751001 /* ColorTools.swift */,
-				70758EAC20C4CB3800751001 /* DateTools.swift */,
 				707A0F0D20C65C69009FB6EF /* LocationTools.swift */,
 				7085A17420C90C4E0099C1ED /* TableViewTools.swift */,
 			);
@@ -316,8 +313,7 @@
 			files = (
 				708B3F3E20F755B700B1157A /* YTTCustomButton.swift in Sources */,
 				707A0F0E20C65C69009FB6EF /* LocationTools.swift in Sources */,
-				70758EAD20C4CB3800751001 /* DateTools.swift in Sources */,
-				7081B1002091753F001AA2CF /* StringTools.swift in Sources */,
+				7081B1002091753F001AA2CF /* String+CXG.swift in Sources */,
 				4B2F291223151D1B0077EB9F /* Date+CXG.swift in Sources */,
 				4B2F291023151CF90077EB9F /* Codable+CXG.swift in Sources */,
 				70A7578F20BB8A8600835D60 /* YTTLoginTools.swift in Sources */,
@@ -325,7 +321,7 @@
 				7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */,
 				70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */,
 				7085A17520C90C4E0099C1ED /* TableViewTools.swift in Sources */,
-				7081B0FE20915C48001AA2CF /* ImageTools.swift in Sources */,
+				7081B0FE20915C48001AA2CF /* UImage+CXG.swift in Sources */,
 				7081B102209178B2001AA2CF /* YTTShareTools.swift in Sources */,
 				70A7578C20BB892200835D60 /* ThirdPlatformTools.swift in Sources */,
 				7081B0EB20915BDF001AA2CF /* AppDelegate.swift in Sources */,
