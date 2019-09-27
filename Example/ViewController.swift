@@ -17,6 +17,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let imageView = UIImageView(frame: CGRect(x: 20, y: 88, width: 300, height: 100))
+        imageView.cxg_loadGIF(forResource: "video_loading", withExtension: "gif")
+        self.view.addSubview(imageView)
+        
 //        UIApplication.shared.isStatusBarHidden = true
         
 //        let imageView = UIImageView(frame: self.view.frame)
@@ -56,18 +60,18 @@ class ViewController: UIViewController {
     @IBAction func click(_ sender: UIButton) {
     
         
-        tools.finishLocation = { (manege, location) in
-            print(location)
-            
-            self.tools.getAddress(withLocation: location!, addresses: { (address) in
-                print(address)
-            })
-            
-            
-            self.tools.stopLocation()
-        }
-        
-        tools.startLocation()
+//        tools.finishLocation = { (manege, location) in
+//            print(location)
+//
+//            self.tools.getAddress(withLocation: location!, addresses: { (address) in
+//                print(address)
+//            })
+//
+//
+//            self.tools.stopLocation()
+//        }
+//
+//        tools.startLocation()
 //
 //        print("11111")
 //
@@ -83,11 +87,11 @@ class ViewController: UIViewController {
 //
 //        ThirdPlatformTools.share.wx_shareText("少时诵诗书", scene: WXSceneSession)
         
-        tools.finishLocation = { (manege, location) in
-            print(location)
-        }
-        
-        tools.startLocation()
+//        tools.finishLocation = { (manege, location) in
+//            print(location)
+//        }
+//
+//        tools.startLocation()
         
     }
     override func didReceiveMemoryWarning() {

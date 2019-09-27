@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B2F291023151CF90077EB9F /* Codable+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F290F23151CF90077EB9F /* Codable+CXG.swift */; };
 		4B2F291223151D1B0077EB9F /* Date+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F291123151D1B0077EB9F /* Date+CXG.swift */; };
+		4BCD8BA8233D8BC700337368 /* UIImageView+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD8BA7233D8BC700337368 /* UIImageView+CXG.swift */; };
+		4BCD8BAA233D949000337368 /* video_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4BCD8BA9233D949000337368 /* video_loading.gif */; };
 		70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70204D9020BCE857003F3831 /* YTTPayTools.swift */; };
 		70204D9420BD39AF003F3831 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9220BD39AE003F3831 /* AlipaySDK.framework */; };
 		70204D9520BD39AF003F3831 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 70204D9320BD39AF003F3831 /* AlipaySDK.bundle */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		4B2F290F23151CF90077EB9F /* Codable+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+CXG.swift"; sourceTree = "<group>"; };
 		4B2F291123151D1B0077EB9F /* Date+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+CXG.swift"; sourceTree = "<group>"; };
+		4BCD8BA7233D8BC700337368 /* UIImageView+CXG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CXG.swift"; sourceTree = "<group>"; };
+		4BCD8BA9233D949000337368 /* video_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = video_loading.gif; sourceTree = "<group>"; };
 		70204D9020BCE857003F3831 /* YTTPayTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPayTools.swift; sourceTree = "<group>"; };
 		70204D9220BD39AE003F3831 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		70204D9320BD39AF003F3831 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		7081B0DE20915BDF001AA2CF = {
 			isa = PBXGroup;
 			children = (
+				4BCD8BA9233D949000337368 /* video_loading.gif */,
 				7081B0FC20915C09001AA2CF /* Example */,
 				7081B0E920915BDF001AA2CF /* iOSTools */,
 				7081B0E820915BDF001AA2CF /* Products */,
@@ -153,6 +158,7 @@
 				70758EAA20C4C7AB00751001 /* ColorTools.swift */,
 				707A0F0D20C65C69009FB6EF /* LocationTools.swift */,
 				7085A17420C90C4E0099C1ED /* TableViewTools.swift */,
+				4BCD8BA7233D8BC700337368 /* UIImageView+CXG.swift */,
 			);
 			path = iOSTools;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70204D9520BD39AF003F3831 /* AlipaySDK.bundle in Resources */,
+				4BCD8BAA233D949000337368 /* video_loading.gif in Resources */,
 				708A66412099489E00C952F4 /* 1.jpeg in Resources */,
 				7081B0F520915BE0001AA2CF /* LaunchScreen.storyboard in Resources */,
 				7081B0F220915BE0001AA2CF /* Assets.xcassets in Resources */,
@@ -320,6 +327,7 @@
 				70A757A520BB931000835D60 /* ThirdPlatformToolsResp.swift in Sources */,
 				7081B0ED20915BDF001AA2CF /* ViewController.swift in Sources */,
 				70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */,
+				4BCD8BA8233D8BC700337368 /* UIImageView+CXG.swift in Sources */,
 				7085A17520C90C4E0099C1ED /* TableViewTools.swift in Sources */,
 				7081B0FE20915C48001AA2CF /* UImage+CXG.swift in Sources */,
 				7081B102209178B2001AA2CF /* YTTShareTools.swift in Sources */,

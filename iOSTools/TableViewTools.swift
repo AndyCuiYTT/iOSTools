@@ -81,13 +81,6 @@ struct YTTTableView {
         }
     }
     
-    
-//    func refreshHeader(refreshingBlock: @escaping MJRefreshComponentRefreshingBlock) {
-//        tableView.mj_header = MJRefreshGifHeader(refreshingBlock: refreshingBlock)
-//    }
-//    
-//    func refreshFooter(refreshingBlock: @escaping MJRefreshComponentRefreshingBlock) {
-//        tableView.mj_footer = MJRefreshBackFooter(refreshingBlock: refreshingBlock)
-//    }
+
 }
 
