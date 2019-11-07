@@ -20,7 +20,7 @@
 		70204D9D20BD3A00003F3831 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9C20BD39FF003F3831 /* UIKit.framework */; };
 		70204D9F20BD3A0A003F3831 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204D9E20BD3A0A003F3831 /* Foundation.framework */; };
 		70204DA120BD3A1F003F3831 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70204DA020BD3A1F003F3831 /* CoreMotion.framework */; };
-		70758EAB20C4C7AB00751001 /* ColorTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70758EAA20C4C7AB00751001 /* ColorTools.swift */; };
+		70758EAB20C4C7AB00751001 /* UIColor+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70758EAA20C4C7AB00751001 /* UIColor+CXG.swift */; };
 		707A0F0E20C65C69009FB6EF /* LocationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A0F0D20C65C69009FB6EF /* LocationTools.swift */; };
 		707A0F1020C65C8E009FB6EF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A0F0F20C65C8D009FB6EF /* CoreLocation.framework */; };
 		7081B0EB20915BDF001AA2CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0EA20915BDF001AA2CF /* AppDelegate.swift */; };
@@ -63,7 +63,7 @@
 		70204D9C20BD39FF003F3831 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70204D9E20BD3A0A003F3831 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		70204DA020BD3A1F003F3831 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		70758EAA20C4C7AB00751001 /* ColorTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTools.swift; sourceTree = "<group>"; };
+		70758EAA20C4C7AB00751001 /* UIColor+CXG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CXG.swift"; sourceTree = "<group>"; };
 		707A0F0D20C65C69009FB6EF /* LocationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTools.swift; sourceTree = "<group>"; };
 		707A0F0F20C65C8D009FB6EF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7081B0E720915BDF001AA2CF /* iOSTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +155,7 @@
 				7081B0FD20915C48001AA2CF /* UImage+CXG.swift */,
 				7081B0FF2091753F001AA2CF /* String+CXG.swift */,
 				7081B10F20917AA7001AA2CF /* iOSTools-Bridging-Header.h */,
-				70758EAA20C4C7AB00751001 /* ColorTools.swift */,
+				70758EAA20C4C7AB00751001 /* UIColor+CXG.swift */,
 				707A0F0D20C65C69009FB6EF /* LocationTools.swift */,
 				7085A17420C90C4E0099C1ED /* TableViewTools.swift */,
 				4BCD8BA7233D8BC700337368 /* UIImageView+CXG.swift */,
@@ -333,7 +333,7 @@
 				7081B102209178B2001AA2CF /* YTTShareTools.swift in Sources */,
 				70A7578C20BB892200835D60 /* ThirdPlatformTools.swift in Sources */,
 				7081B0EB20915BDF001AA2CF /* AppDelegate.swift in Sources */,
-				70758EAB20C4C7AB00751001 /* ColorTools.swift in Sources */,
+				70758EAB20C4C7AB00751001 /* UIColor+CXG.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

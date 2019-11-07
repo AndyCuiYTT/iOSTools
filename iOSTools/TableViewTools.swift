@@ -2,7 +2,7 @@
 //  TableViewTools.swift
 //  iOSTools
 //
-//  Created by qiuweniOS on 2018/6/7.
+//  Created by CuiXg on 2018/6/7.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 

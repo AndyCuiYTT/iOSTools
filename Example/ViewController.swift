@@ -17,9 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let imageView = UIImageView(frame: CGRect(x: 20, y: 88, width: 300, height: 100))
-        imageView.cxg_loadGIF(forResource: "video_loading", withExtension: "gif")
-        self.view.addSubview(imageView)
+       
         
 //        UIApplication.shared.isStatusBarHidden = true
         
@@ -56,8 +54,16 @@ class ViewController: UIViewController {
        
         
     }
+    
+    
 
     @IBAction func click(_ sender: UIButton) {
+        
+         let imageView = UIImageView(frame: CGRect(x: 20, y: 88, width: 300, height: 600))
+        imageView.contentMode = .center
+        //        imageView.cxg_loadGIF(forResource: "video_loading", withExtension: "gif")
+        imageView.image = UIImage.cxg_init(withColor: UIColor.red, size: CGSize(width: 100, height: 100))?.cxg_circle()
+                self.view.addSubview(imageView)
     
         
 //        tools.finishLocation = { (manege, location) in
