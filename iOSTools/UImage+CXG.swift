@@ -13,16 +13,49 @@ extension UIImage {
     ///
     /// - Parameters:
     ///   - currentView: 要截取的视图
-    ///   - size: 将来创建出来的bitmap的大小
-    ///   - opaque: 设置透明YES代表透明，NO代表不透明
-    ///   - scale: 代表缩放,0代表不缩放
     /// - Returns: 要截取视图对应的 UIImage 对象
-    class func cxg_captureScreen(currentView: UIView, opaque: Bool, scale: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(currentView.bounds.size, opaque, scale)
-        currentView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
+    @available(iOS 10.0, *)
+    convenience init?(currentView: UIView) {
+        let renderer = UIGraphicsImageRenderer(size: currentView.bounds.size)
+        let pngData = renderer.pngData { (context) in
+            currentView.layer.render(in: context.cgContext)
+        }
+        self.init(data: pngData)
+    }
+    
+    /// 截取视图
+    ///
+    /// - Parameters:
+    ///   - currentView: 要截取的视图
+    /// - Returns: 要截取视图对应的 UIImage 对象
+    class func cxg_captureScreen(currentView: UIView) -> UIImage? {
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: currentView.bounds.size)
+            return renderer.image { (context) in
+                currentView.layer.render(in: context.cgContext)
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(currentView.bounds.size, true, UIScreen.main.scale)
+            currentView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image
+        }
+    }
+    
+    
+    /// 根据颜色生成图片
+    /// - Parameter color: 图片颜色
+    /// - Parameter size: 图片尺寸
+    @available(iOS 10.0, *)
+    convenience init?(color: UIColor, size: CGSize) {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let pngData = renderer.pngData { (context) in
+            let context = context.cgContext
+            context.setFillColor(color.cgColor)
+            context.fill(CGRect(origin: CGPoint(x: 0, y: 0), size: size))
+        }
+        self.init(data: pngData)
     }
     
     
@@ -31,96 +64,120 @@ extension UIImage {
     /// - Parameters:
     ///   - color: 图片颜色
     ///   - size: 图片尺寸
-    class func cxg_initWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
-        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
-        UIGraphicsBeginImageContextWithOptions(size, true, 0)
-        let context = UIGraphicsGetCurrentContext()
-        context?.setFillColor(color.cgColor)
-        context?.fill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
+    class func cxg_init(withColor color: UIColor, size: CGSize) -> UIImage? {
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image { (context) in
+                let context = context.cgContext
+                context.setFillColor(color.cgColor)
+                context.fill(CGRect(origin: CGPoint(x: 0, y: 0), size: size))
+            }
+        } else {
+            let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+            UIGraphicsBeginImageContextWithOptions(size, true, UIScreen.main.scale)
+            let context = UIGraphicsGetCurrentContext()
+            context?.setFillColor(color.cgColor)
+            context?.fill(rect)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image
+        }
     }
     
     
     /// base64 转 UIImage
     ///
     /// - Parameter base64: 图片base64
-    class func cxg_initWithBase64(_ base64: String) -> UIImage? {
+    convenience init?(base64: String) {
         guard let imageData = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
-            return nil
+            self.init()
+            return
         }
-        return UIImage(data: imageData)
+        self.init(data: imageData)
     }
-    
+
     /// 通过 URL 加载图片
     ///
     /// - Parameter urlStr: 图片 URL 地址
-    class func cxg_initWithURL(_ urlStr: String) -> UIImage? {
-        
+    convenience init?(urlStr: String) {
         if let url = URL(string: urlStr) {
             do {
                 let imageData = try Data(contentsOf: url, options: .mappedIfSafe)
-                return UIImage(data: imageData)
-            }catch {
-                return nil
-            }
+                self.init(data: imageData)
+            }catch {}
         }
-        return nil
+        self.init()
     }
     
-
     
     /// 获取圆形图片
     ///
     /// - Returns: 圆形图片
-    func cxg_circleImage() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        let context = UIGraphicsGetCurrentContext()
-        context?.addEllipse(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
-        context?.clip()
-        self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
+    func cxg_circle() -> UIImage? {
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image { (context) in
+                let context = context.cgContext
+                context.addEllipse(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+                context.clip()
+                self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+            let context = UIGraphicsGetCurrentContext()
+            context?.addEllipse(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+            context?.clip()
+            self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage
+        }
     }
     
     /// 修改图片 size
     ///
     /// - Parameter size: 图片大小
     /// - Returns: 修改后的图片
-    func cxg_resetImageSize(_ size: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
+    func cxg_resetSize(_ size: CGSize) -> UIImage? {
+        
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image { (context) in
+                self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+            self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage
+        }
     }
     
     /// 根据宽度重新绘制图片
     ///
     /// - Parameter width: 所需宽度
     /// - Returns: 所需尺寸图片
-    func cxg_resetImageSizeWithWidth(_ width: CGFloat) -> UIImage? {
+    func cxg_resetSizeWithWidth(_ width: CGFloat) -> UIImage? {
         let height = self.size.height * (width / self.size.width)
-        return cxg_resetImageSize(CGSize(width: width, height: height))
+        return cxg_resetSize(CGSize(width: width, height: height))
     }
     
     /// 根据高度重新绘制图片
     ///
     /// - Parameter height: 所需高度
     /// - Returns: 所需尺寸图片
-    func cxg_resetImageSizeWithHeight(_ height: CGFloat) -> UIImage? {
+    func cxg_resetSizeWithHeight(_ height: CGFloat) -> UIImage? {
         let width = self.size.width * (height / self.size.height)
-        return cxg_resetImageSize(CGSize(width: width, height: height))
+        return cxg_resetSize(CGSize(width: width, height: height))
     }
     
     /// 根据比例重新绘制图片
     ///
     /// - Parameter scale: 所需比例
     /// - Returns: 所需尺寸图片
-    func cxg_resetImageSizeWithScale(_ scale: CGFloat) -> UIImage? {
-        return cxg_resetImageSize(CGSize(width: self.size.width * scale, height: self.size.height * scale))
+    func cxg_resetSizeWithScale(_ scale: CGFloat) -> UIImage? {
+        return cxg_resetSize(CGSize(width: self.size.width * scale, height: self.size.height * scale))
     }
     
     /// 为图片添加图片遮罩
@@ -129,13 +186,22 @@ extension UIImage {
     ///   - maskImage: 遮罩图片
     ///   - maskRect: 遮罩层位置,大小
     /// - Returns: 添加遮罩图片
-    func cxg_addMaskLayler(maskImage: UIImage, maskRect: CGRect) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(self.size, true, 0)
-        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        maskImage.draw(in: maskRect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
+    func cxg_addMaskLayler(maskImage: UIImage?, maskRect: CGRect) -> UIImage? {
+        
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image { (context) in
+                self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+                maskImage?.draw(in: maskRect)
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(self.size, true, 0)
+            self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+            maskImage?.draw(in: maskRect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage
+        }
     }
     
     /// 图片转 base64
