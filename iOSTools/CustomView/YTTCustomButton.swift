@@ -45,36 +45,43 @@ class YTTCustomButton: UIButton {
         super.layoutSubviews()
         
         if let titleLabel = self.titleLabel, let imageView = self.imageView {
-            
+
             let space = spaceBetweenTitleAndImage
-            
-            let titleLabelWidth = titleLabel.bounds.width
-            let titleLabelHeight = titleLabel.bounds.height
-            
-            let imageViewWidth = imageView.bounds.width
-            let imageViewHeight = imageView.bounds.height
-            
-            // self.center.x 用此方法获取按钮中心点 X 造成死循环
-            
-            let btnCenterX = self.bounds.width / 2 //按钮中心点X的坐标（以按钮左上角为原点的坐标系）
-            let imageViewCenterX = btnCenterX - titleLabelWidth / 2 //imageView中心点X的坐标（以按钮左上角为原点的坐标系）
-            let titleLabelCenterX = btnCenterX + imageViewWidth / 2 //titleLabel中心点X的坐标（以按钮左上角为原点的坐标系）
-            
+
+            let imageSize = imageView.bounds.size
+            let labelSize = ((titleLabel.text ?? "") as NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [.font: titleLabel.font], context: nil).size
+
             switch imageAlignment {
             case .top:
-                self.titleEdgeInsets = UIEdgeInsets(top: imageViewHeight / 2 + space / 2, left: -(titleLabelCenterX - btnCenterX), bottom: -(imageViewHeight / 2 + space / 2), right: titleLabelCenterX - btnCenterX)
-                self.imageEdgeInsets = UIEdgeInsets(top: -(titleLabelHeight / 2 + space / 2), left: btnCenterX - imageViewCenterX, bottom: titleLabelHeight / 2 + space / 2, right: imageViewCenterX - btnCenterX)
+                let marginY = (bounds.height - (imageSize.height + labelSize.height + space)) / 2
+                let imageViewX = (bounds.width - imageSize.width) / 2
+                let labelX = (bounds.width - labelSize.width) / 2
+                let labelY = marginY + imageSize.height + space
+                imageView.frame = CGRect(origin: CGPoint(x: imageViewX, y: marginY), size: imageSize)
+                titleLabel.frame = CGRect(origin: CGPoint(x: labelX, y: labelY), size: labelSize)
             case .right:
-                self.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(imageViewWidth + space / 2), bottom: 0, right: imageViewWidth + space / 2)
-                self.imageEdgeInsets = UIEdgeInsets(top: 0, left: titleLabelWidth + space / 2, bottom: 0, right: -(titleLabelWidth + space / 2))
+                let marginX = (bounds.width - (imageSize.width + labelSize.width + space)) / 2
+                let imageViewY = (bounds.height - imageSize.height) / 2
+                let labelY = (bounds.height - labelSize.height) / 2
+                let imageViewX = marginX + labelSize.width + space
+                imageView.frame = CGRect(origin: CGPoint(x: imageViewX, y: imageViewY), size: imageSize)
+                titleLabel.frame = CGRect(origin: CGPoint(x: marginX, y: labelY), size: labelSize)
             case .left:
-                self.titleEdgeInsets = UIEdgeInsets(top: 0, left: space / 2, bottom: 0, right: -space / 2)
-                self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -space / 2, bottom: 0, right: space / 2)
+                let marginX = (bounds.width - (imageSize.width + labelSize.width + space)) / 2
+                let imageViewY = (bounds.height - imageSize.height) / 2
+                let labelY = (bounds.height - labelSize.height) / 2
+                let labelX = marginX + imageSize.width + space
+                imageView.frame = CGRect(origin: CGPoint(x: marginX, y: imageViewY), size: imageSize)
+                titleLabel.frame = CGRect(origin: CGPoint(x: labelX, y: labelY), size: labelSize)
+
             case .bottom:
-                self.titleEdgeInsets = UIEdgeInsets(top: -imageViewHeight / 2 - space / 2, left: -(titleLabelCenterX - btnCenterX), bottom: imageViewHeight / 2 + space / 2, right: titleLabelCenterX - btnCenterX)
-                self.imageEdgeInsets = UIEdgeInsets(top: titleLabelHeight / 2 + space / 2, left: btnCenterX - imageViewCenterX, bottom: -titleLabelHeight / 2 - space / 2, right: imageViewCenterX - btnCenterX)
+                let marginY = (bounds.height - (imageSize.height + labelSize.height + space)) / 2
+                let imageViewX = (bounds.width - imageSize.width) / 2
+                let labelX = (bounds.width - labelSize.width) / 2
+                let imageViewY = marginY + labelSize.height + space
+                titleLabel.frame = CGRect(origin: CGPoint(x: imageViewX, y: marginY), size: imageSize)
+                imageView.frame = CGRect(origin: CGPoint(x: labelX, y: imageViewY), size: labelSize)
             }
-            
         }
         
     }
