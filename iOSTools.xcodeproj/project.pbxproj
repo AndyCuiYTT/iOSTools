@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B2F291023151CF90077EB9F /* Codable+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F290F23151CF90077EB9F /* Codable+CXG.swift */; };
 		4B2F291223151D1B0077EB9F /* Date+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F291123151D1B0077EB9F /* Date+CXG.swift */; };
+		4B552A0A23A7812800BD9F91 /* iOSToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B552A0923A7812800BD9F91 /* iOSToolsTests.swift */; };
+		4B552A1123A7814800BD9F91 /* String+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081B0FF2091753F001AA2CF /* String+CXG.swift */; };
 		4BCD8BA8233D8BC700337368 /* UIImageView+CXG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD8BA7233D8BC700337368 /* UIImageView+CXG.swift */; };
 		4BCD8BAA233D949000337368 /* video_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4BCD8BA9233D949000337368 /* video_loading.gif */; };
 		70204D9120BCE857003F3831 /* YTTPayTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70204D9020BCE857003F3831 /* YTTPayTools.swift */; };
@@ -49,9 +51,22 @@
 		70A757A520BB931000835D60 /* ThirdPlatformToolsResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A757A420BB931000835D60 /* ThirdPlatformToolsResp.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4B552A0C23A7812800BD9F91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7081B0DF20915BDF001AA2CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7081B0E620915BDF001AA2CF;
+			remoteInfo = iOSTools;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4B2F290F23151CF90077EB9F /* Codable+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+CXG.swift"; sourceTree = "<group>"; };
 		4B2F291123151D1B0077EB9F /* Date+CXG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+CXG.swift"; sourceTree = "<group>"; };
+		4B552A0723A7812800BD9F91 /* iOSToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B552A0923A7812800BD9F91 /* iOSToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSToolsTests.swift; sourceTree = "<group>"; };
+		4B552A0B23A7812800BD9F91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BCD8BA7233D8BC700337368 /* UIImageView+CXG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CXG.swift"; sourceTree = "<group>"; };
 		4BCD8BA9233D949000337368 /* video_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = video_loading.gif; sourceTree = "<group>"; };
 		70204D9020BCE857003F3831 /* YTTPayTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPayTools.swift; sourceTree = "<group>"; };
@@ -99,6 +114,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B552A0423A7812800BD9F91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7081B0E420915BDF001AA2CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,12 +148,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B552A0823A7812800BD9F91 /* iOSToolsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B552A0923A7812800BD9F91 /* iOSToolsTests.swift */,
+				4B552A0B23A7812800BD9F91 /* Info.plist */,
+			);
+			path = iOSToolsTests;
+			sourceTree = "<group>";
+		};
 		7081B0DE20915BDF001AA2CF = {
 			isa = PBXGroup;
 			children = (
 				4BCD8BA9233D949000337368 /* video_loading.gif */,
 				7081B0FC20915C09001AA2CF /* Example */,
 				7081B0E920915BDF001AA2CF /* iOSTools */,
+				4B552A0823A7812800BD9F91 /* iOSToolsTests */,
 				7081B0E820915BDF001AA2CF /* Products */,
 				7081B10C209179E1001AA2CF /* Frameworks */,
 			);
@@ -141,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				7081B0E720915BDF001AA2CF /* iOSTools.app */,
+				4B552A0723A7812800BD9F91 /* iOSToolsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +278,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4B552A0623A7812800BD9F91 /* iOSToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B552A1023A7812800BD9F91 /* Build configuration list for PBXNativeTarget "iOSToolsTests" */;
+			buildPhases = (
+				4B552A0323A7812800BD9F91 /* Sources */,
+				4B552A0423A7812800BD9F91 /* Frameworks */,
+				4B552A0523A7812800BD9F91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B552A0D23A7812800BD9F91 /* PBXTargetDependency */,
+			);
+			name = iOSToolsTests;
+			productName = iOSToolsTests;
+			productReference = 4B552A0723A7812800BD9F91 /* iOSToolsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7081B0E620915BDF001AA2CF /* iOSTools */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7081B0F920915BE0001AA2CF /* Build configuration list for PBXNativeTarget "iOSTools" */;
@@ -268,10 +319,14 @@
 		7081B0DF20915BDF001AA2CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = AndyCuiYTT;
 				TargetAttributes = {
+					4B552A0623A7812800BD9F91 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 7081B0E620915BDF001AA2CF;
+					};
 					7081B0E620915BDF001AA2CF = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
@@ -292,11 +347,19 @@
 			projectRoot = "";
 			targets = (
 				7081B0E620915BDF001AA2CF /* iOSTools */,
+				4B552A0623A7812800BD9F91 /* iOSToolsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4B552A0523A7812800BD9F91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7081B0E520915BDF001AA2CF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,6 +377,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B552A0323A7812800BD9F91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B552A0A23A7812800BD9F91 /* iOSToolsTests.swift in Sources */,
+				4B552A1123A7814800BD9F91 /* String+CXG.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7081B0E320915BDF001AA2CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +411,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4B552A0D23A7812800BD9F91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7081B0E620915BDF001AA2CF /* iOSTools */;
+			targetProxy = 4B552A0C23A7812800BD9F91 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7081B0EE20915BDF001AA2CF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -359,6 +439,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4B552A0E23A7812800BD9F91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iOSToolsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = AndyCuiYTT.iOSToolsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSTools.app/iOSTools";
+			};
+			name = Debug;
+		};
+		4B552A0F23A7812800BD9F91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = iOSToolsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = AndyCuiYTT.iOSToolsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSTools.app/iOSTools";
+			};
+			name = Release;
+		};
 		7081B0F720915BE0001AA2CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -535,6 +658,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B552A1023A7812800BD9F91 /* Build configuration list for PBXNativeTarget "iOSToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B552A0E23A7812800BD9F91 /* Debug */,
+				4B552A0F23A7812800BD9F91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7081B0E220915BDF001AA2CF /* Build configuration list for PBXProject "iOSTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

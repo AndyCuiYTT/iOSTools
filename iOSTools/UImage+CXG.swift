@@ -133,12 +133,35 @@ extension UIImage {
             return newImage
         }
     }
+
+    /// 获取圆角图片
+    /// - Parameter radius: 圆角半径
+    func xfs_cornerRadius(_ radius: CGFloat) -> UIImage? {
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image { (context) in
+                let context = context.cgContext
+                context.addPath(UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size), cornerRadius: radius).cgPath)
+                context.clip()
+                self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+            let context = UIGraphicsGetCurrentContext()
+            context?.addPath(UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size), cornerRadius: radius).cgPath)
+            context?.clip()
+            self.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: self.size))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage
+        }
+    }
     
     /// 修改图片 size
     ///
     /// - Parameter size: 图片大小
     /// - Returns: 修改后的图片
-    func cxg_resetSize(_ size: CGSize) -> UIImage? {
+    func cxg_reset(withSize size: CGSize) -> UIImage? {
         
         if #available(iOS 10.0, *) {
             let renderer = UIGraphicsImageRenderer(size: size)
@@ -158,26 +181,26 @@ extension UIImage {
     ///
     /// - Parameter width: 所需宽度
     /// - Returns: 所需尺寸图片
-    func cxg_resetSizeWithWidth(_ width: CGFloat) -> UIImage? {
+    func cxg_reset(withWidth width: CGFloat) -> UIImage? {
         let height = self.size.height * (width / self.size.width)
-        return cxg_resetSize(CGSize(width: width, height: height))
+        return cxg_reset(withSize: CGSize(width: width, height: height))
     }
     
     /// 根据高度重新绘制图片
     ///
     /// - Parameter height: 所需高度
     /// - Returns: 所需尺寸图片
-    func cxg_resetSizeWithHeight(_ height: CGFloat) -> UIImage? {
+    func cxg_reset(withHeight height: CGFloat) -> UIImage? {
         let width = self.size.width * (height / self.size.height)
-        return cxg_resetSize(CGSize(width: width, height: height))
+        return cxg_reset(withSize: CGSize(width: width, height: height))
     }
     
     /// 根据比例重新绘制图片
     ///
     /// - Parameter scale: 所需比例
     /// - Returns: 所需尺寸图片
-    func cxg_resetSizeWithScale(_ scale: CGFloat) -> UIImage? {
-        return cxg_resetSize(CGSize(width: self.size.width * scale, height: self.size.height * scale))
+    func cxg_reset(withScale scale: CGFloat) -> UIImage? {
+        return cxg_reset(withSize: CGSize(width: self.size.width * scale, height: self.size.height * scale))
     }
     
     /// 为图片添加图片遮罩
@@ -186,7 +209,7 @@ extension UIImage {
     ///   - maskImage: 遮罩图片
     ///   - maskRect: 遮罩层位置,大小
     /// - Returns: 添加遮罩图片
-    func cxg_addMaskLayler(maskImage: UIImage?, maskRect: CGRect) -> UIImage? {
+    func cxg_add(maskImage: UIImage?, maskRect: CGRect) -> UIImage? {
         
         if #available(iOS 10.0, *) {
             let renderer = UIGraphicsImageRenderer(size: size)
@@ -244,7 +267,7 @@ extension UIImage {
     ///   - image: 要获取颜色的图片
     ///   - point: 触摸点
     /// - Returns: 获取到的颜色
-    func cxg_getPointColor(point: CGPoint) -> UIColor? {
+    func cxg_pointColor(point: CGPoint) -> UIColor? {
         guard CGRect(origin: CGPoint(x: 0, y: 0), size: self.size).contains(point) else {
             return nil
         }
@@ -283,7 +306,7 @@ extension UIImage {
 
 extension UIImage {
 
-    public class func gif(data: Data) -> UIImage? {
+    public class func cxg_gif(data: Data) -> UIImage? {
         // Create source from data
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
             assertionFailure("SwiftGif: Source for the image does not exist")
@@ -293,7 +316,7 @@ extension UIImage {
         return UIImage.animatedImageWithSource(source)
     }
 
-    public class func gif(url: String) -> UIImage? {
+    public class func cxg_gif(url: String) -> UIImage? {
         // Validate URL
         guard let bundleURL = URL(string: url) else {
             assertionFailure("SwiftGif: This image named \"\(url)\" does not exist")
@@ -306,10 +329,10 @@ extension UIImage {
             return nil
         }
 
-        return gif(data: imageData)
+        return cxg_gif(data: imageData)
     }
 
-    public class func gif(name: String) -> UIImage? {
+    public class func cxg_gif(name: String) -> UIImage? {
         // Check for existance of gif
         guard let bundleURL = Bundle.main
           .url(forResource: name, withExtension: "gif") else {
@@ -323,18 +346,18 @@ extension UIImage {
             return nil
         }
 
-        return gif(data: imageData)
+        return cxg_gif(data: imageData)
     }
 
     @available(iOS 9.0, *)
-    public class func gif(asset: String) -> UIImage? {
+    public class func cxg_gif(asset: String) -> UIImage? {
         // Create source from assets catalog
         guard let dataAsset = NSDataAsset(name: asset) else {
             assertionFailure("SwiftGif: Cannot turn image named \"\(asset)\" into NSDataAsset")
             return nil
         }
 
-        return gif(data: dataAsset.data)
+        return cxg_gif(data: dataAsset.data)
     }
 
     internal class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
@@ -472,6 +495,47 @@ extension UIImage {
         return animation
     }
 
+}
+
+// MARK: 二维码生成
+extension UIImage {
+    class func xfs_QRCode(contentInfo: String, size: CGSize, backgroudColor: UIColor = UIColor.white, foregroundColor: UIColor = UIColor.black) -> UIImage? {
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
+            return nil
+        }
+
+        filter.setDefaults()
+        // 容错率
+        filter.setValue("L", forKey: "inputCorrectionLevel")
+        filter.setValue(contentInfo.data(using: .utf8), forKey: "inputMessage")
+        guard let ciImage = filter.outputImage else {
+            return nil
+        }
+
+        let colorFilter = CIFilter(name: "CIFalseColor")
+        colorFilter?.setDefaults()
+        colorFilter?.setValue(ciImage, forKey: "inputImage")
+        // 前景色
+        colorFilter?.setValue(CIColor(color: foregroundColor), forKey: "inputColor0")
+        // 背景色
+        colorFilter?.setValue(CIColor(color: backgroudColor), forKey: "inputColor1")
+
+        let scale = min(size.width / ciImage.extent.width, size.height / ciImage.extent.height)
+        if #available(iOS 10.0, *) {
+            if let transFormImage = colorFilter?.outputImage?.transformed(by: CGAffineTransform(scaleX: scale, y: scale), highQualityDownsample: true) {
+                return UIImage(ciImage: transFormImage)
+            }else {
+                return UIImage(ciImage: ciImage)
+            }
+
+        } else {
+            if let transFormImage = colorFilter?.outputImage?.transformed(by: CGAffineTransform(scaleX: scale, y: scale)) {
+                return UIImage(ciImage: transFormImage)
+            }else {
+                return UIImage(ciImage: ciImage)
+            }
+        }
+    }
 }
 
 

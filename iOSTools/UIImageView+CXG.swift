@@ -10,18 +10,18 @@ import UIKit
 
 extension UIImageView {
     
-    public func loadGif(name: String) {
+    public func cxg_loadGif(name: String) {
         DispatchQueue.global().async {
-            let image = UIImage.gif(name: name)
+            let image = UIImage.cxg_gif(name: name)
             DispatchQueue.main.async {
                 self.image = image
             }
         }
     }
     
-    public func loadGif(url: String) {
+    public func cxg_loadGif(url: String) {
         DispatchQueue.global().async {
-            let image = UIImage.gif(url: url)
+            let image = UIImage.cxg_gif(url: url)
             DispatchQueue.main.async {
                 self.image = image
             }
@@ -29,9 +29,9 @@ extension UIImageView {
     }
         
     @available(iOS 9.0, *)
-    public func loadGif(asset: String) {
+    public func cxg_loadGif(asset: String) {
         DispatchQueue.global().async {
-            let image = UIImage.gif(asset: asset)
+            let image = UIImage.cxg_gif(asset: asset)
             DispatchQueue.main.async {
                 self.image = image
             }

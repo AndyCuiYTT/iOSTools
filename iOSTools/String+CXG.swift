@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CommonCrypto
 
 extension String {
     
@@ -36,6 +36,22 @@ extension String {
             print("error")
         }
         return result
+    }
+
+
+    /// 生成 MD5
+    func cxg_MD5() -> String {
+        let str = self.cString(using: .utf8)
+        let strLength = CUnsignedInt(self.lengthOfBytes(using: .utf8))
+        let digestLen = Int(CC_MD5_DIGEST_LENGTH)
+        let result = UnsafeMutablePointer<UInt8>.allocate(capacity: digestLen)
+        CC_MD5(str!, strLength, result)
+        let hash = NSMutableString()
+        for i in 0 ..< digestLen {
+            hash.appendFormat("%02x", result[i])
+        }
+        free(result)
+        return hash as String
     }
     
     
